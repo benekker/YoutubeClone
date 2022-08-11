@@ -17,17 +17,21 @@ def get_comments_by_video_id(request, video_id):
         serializer = CommentSerializer(comment, many=True)
         return Response (serializer.data)
 
-@api_view(['POST','PUT'])
+@api_view(['PUT'])
 @permission_classes([IsAuthenticated])
-def user_comment (request, pk):
-    if request.method == 'POST':
-        serializer = CommentSerializer(data = request.data)
-        if serializer.is_valid():
-            serializer.save(user=request.user)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-    elif request.method == 'PUT':
+def update_user_comment (request, pk):
+    if request.method == 'PUT':
         comment = get_object_or_404(Comment, pk=pk)
         serializer = CommentSerializer(comment, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response (serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def user_comment (request):
+    if request.method == 'POST':
+        serializer = CommentSerializer(data = request.data)
+        if serializer.is_valid():
+            serializer.save(user=request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)        
