@@ -47,5 +47,14 @@ def like_comment (request, pk):
         serializer.save()
         return Response(serializer.data)
 
-        
+@api_view(['PATCH'])  
+@permission_classes([IsAuthenticated])
+def dislike_comment (request, pk):
+    if request.method == 'PATCH':
+        comment = get_object_or_404(Comment, pk=pk)
+        comment.dislikes += 1
+        serializer = CommentSerializer(comment, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)        
 
