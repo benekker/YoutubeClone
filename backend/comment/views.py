@@ -34,4 +34,18 @@ def user_comment (request):
         serializer = CommentSerializer(data = request.data)
         if serializer.is_valid():
             serializer.save(user=request.user)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)        
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+@api_view(['PATCH'])  
+@permission_classes([IsAuthenticated])
+def like_comment (request, pk):
+    if request.method == 'PATCH':
+        comment = get_object_or_404(Comment, pk=pk)
+        comment.likes += 1
+        serializer = CommentSerializer(comment, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+
+        
+
