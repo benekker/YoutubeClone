@@ -9,9 +9,9 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def get_reply_by_comment_id(request, pk):
+def get_reply_by_comment_id(request, comment):
     if request.method == 'GET':
-        reply = Reply.objects.filter(pk=pk)
+        reply = Reply.objects.filter(comment = comment)
         serializer = ReplySerializer(reply, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
