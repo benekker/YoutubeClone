@@ -11,12 +11,18 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import SearchPage from "./components/SearchPage/SearchPage";
+import SearchBar from "./components/SearchBar/SearchBar";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+import { useState } from "react";
 
 
 function App() {
+  const [search, setSearch] = useState('')
+ 
+
+
   return (
     <div>
       <Navbar />
@@ -31,7 +37,7 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path ="/searchpage" element={<SearchPage />} />
+        <Route path ="/searchpage" element ={<SearchPage/>}/>
       </Routes>
       <Footer />
     </div>
