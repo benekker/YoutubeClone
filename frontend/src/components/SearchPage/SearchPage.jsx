@@ -1,6 +1,7 @@
 
 import axios from 'axios'
 import { useEffect, useState, } from 'react';
+import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import SearchBar from '../SearchBar/SearchBar';
 
@@ -25,12 +26,18 @@ const SearchPage = (props) => {
         fetchVideos();
     }, [token]);
 
+
+    
+
     return (
         <div>
             <SearchBar fetchVideos = {fetchVideos} />
             {videos.map((video, index) => {
                 return(
-                    <div key = {index}>{video.snippet ? <img src={video.snippet.thumbnails.default.url}></img> : null} </div>
+                <a href='http://localhost:3000/videoPage'>
+                    <div key = {index}>{video.snippet ? <img src={video.snippet.thumbnails.default.url}></img> : null} 
+                    </div>
+                </a>
                 )
             })};
             
