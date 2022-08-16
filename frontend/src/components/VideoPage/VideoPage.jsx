@@ -6,7 +6,7 @@ const VideoPage = (props) => {
 
     return ( 
     <div>
-       <VideoPlayer/>
+       <VideoPlayer />
        <RelatedVideos/>
     </div>
     );

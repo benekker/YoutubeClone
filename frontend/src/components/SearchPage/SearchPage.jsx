@@ -1,7 +1,7 @@
 
 import axios from 'axios'
 import { useEffect, useState, } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Route, useNavigate, useParams } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import SearchBar from '../SearchBar/SearchBar';
 
@@ -10,6 +10,7 @@ const SearchPage = (props) => {
 
     const [user, token] = useAuth();
     const [videos, setVideos] = useState([])
+    
     const fetchVideos = async (videoTitle = 'starwars') => {
         try{
             let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${videoTitle}&key=AIzaSyBoMrh9V0ZVSk-HsdkLK9rkybZ4TQCcL5w&part=snippet`
@@ -26,6 +27,11 @@ const SearchPage = (props) => {
         fetchVideos();
     }, [token]);
 
+    const getVideo = (videoId) => {
+    
+        
+    }
+
 
     
 
@@ -34,8 +40,10 @@ const SearchPage = (props) => {
             <SearchBar fetchVideos = {fetchVideos} />
             {videos.map((video, index) => {
                 return(
-                <a href='http://localhost:3000/videoPage'>
-                    <div key = {index}>{video.snippet ? <img src={video.snippet.thumbnails.default.url}></img> : null} 
+                <a href='http://localhost:3000/videopage'>
+                    <div key = {index}>{video.snippet ? <img src={video.snippet.thumbnails.default.url} onClick={ () => getVideo(video)}></img> : null} 
+                    {/* <Link to={`/videopage/${video}`}></Link> */}
+                    
                     </div>
                 </a>
                 )
