@@ -4,6 +4,7 @@ import { useEffect, useState, } from 'react';
 import { Route, useNavigate, useParams } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import SearchBar from '../SearchBar/SearchBar';
+import { Link } from 'react-router-dom';
 
 
 const SearchPage = (props) => {
@@ -17,6 +18,7 @@ const SearchPage = (props) => {
             );
             setVideos(response.data.items);
             console.log(response.data)
+            
 
         } catch (error){
             console.log(error.message);
@@ -28,7 +30,6 @@ const SearchPage = (props) => {
     }, [token]);
 
     const getVideo = (videoId) => {
-    
         
     }
 
@@ -40,12 +41,10 @@ const SearchPage = (props) => {
             <SearchBar fetchVideos = {fetchVideos} />
             {videos.map((video, index) => {
                 return(
-                <a href='http://localhost:3000/videopage'>
-                    <div key = {index}>{video.snippet ? <img src={video.snippet.thumbnails.default.url} onClick={ () => getVideo(video)}></img> : null} 
-                    {/* <Link to={`/videopage/${video}`}></Link> */}
-                    
+                <Link to={`/videopage/${video.id.videoId}`}>
+                    <div key = {index}>{video.snippet ?  <img src={video.snippet.thumbnails.default.url} onClick={ () => getVideo(video)}></img> : null}    
                     </div>
-                </a>
+                </Link>
                 )
             })};
             

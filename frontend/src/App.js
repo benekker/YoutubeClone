@@ -40,7 +40,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path ="/searchpage" element ={<SearchPage/>}/>
-        <Route path ="/videopage" element={<VideoPage/>}/>
+        <Route path ="/videopage/:video" element={<VideoPage/>}/>
       </Routes>
       <Footer />
     </div>

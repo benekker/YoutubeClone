@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 
-const RelatedVideos = () => {
+const RelatedVideos = (props) => {
 
     const [relatedvideos, setRelatedVideos] = useState([]);
     
@@ -10,7 +10,7 @@ const RelatedVideos = () => {
 
     const fetchRelatedVideos = async (videoId = 'M7lc1UVf-VE') => {
         try{
-            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&type=video&key=AIzaSyBoMrh9V0ZVSk-HsdkLK9rkybZ4TQCcL5w&part=snippet`);
+            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${props.video}&type=video&key=AIzaSyBoMrh9V0ZVSk-HsdkLK9rkybZ4TQCcL5w&part=snippet`);
             setRelatedVideos(response.data.items);
             console.log(response.data);
         } catch (error){
