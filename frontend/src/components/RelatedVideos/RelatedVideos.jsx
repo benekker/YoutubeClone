@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
 
 const RelatedVideos = (props) => {
 
@@ -8,7 +8,7 @@ const RelatedVideos = (props) => {
     
     
 
-    const fetchRelatedVideos = async (videoId = 'M7lc1UVf-VE') => {
+    const fetchRelatedVideos = async () => {
         try{
             let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${props.video}&type=video&key=AIzaSyBoMrh9V0ZVSk-HsdkLK9rkybZ4TQCcL5w&part=snippet`);
             setRelatedVideos(response.data.items);
@@ -20,10 +20,12 @@ const RelatedVideos = (props) => {
 
     useEffect(() => {
         fetchRelatedVideos();
-    }, [])
+    }, [props.video])
 
 
+    const getVideo = (video) => {
 
+    }
 
 
     return ( 
@@ -31,10 +33,10 @@ const RelatedVideos = (props) => {
             <h1>Related Videos</h1>
             {relatedvideos.map((video,index) => {
                 return(
-                    
-                    <div key={index}> {video.snippet ? <img src={video.snippet.thumbnails.default.url}></img> : null}
-                    </div>
-                    
+                    <Link to={`/videopage/${video.id.videoId}`}>
+                        <div key={index}> {video.snippet ? <img src={video.snippet.thumbnails.default.url} onClick={ () => getVideo(video)}></img> : null}
+                        </div>
+                    </Link>
                 )
             })}
         </div>

@@ -1,5 +1,7 @@
-// const CommentForm = () => {
-//     return ( pass );
-// }
+const CommentForm = () => {
+    return ( 
+        'C form'
+     );
+}
  
-// export default CommentForm;
+export default CommentForm;

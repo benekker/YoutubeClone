@@ -10,7 +10,7 @@ const VideoPlayer = (props) => {
         setTitle(response.data.items[0].snippet.title)
         console.log(response.data)
         setDescription(response.data.items[0].snippet.description)
-        },[]);
+        },[props.video]);
      
     return ( 
         <div>

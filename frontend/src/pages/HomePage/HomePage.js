@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import { Link, useNavigate } from "react-router-dom";
 
 import axios from "axios";
 
@@ -26,15 +27,16 @@ const HomePage = () => {
     };
     fetchCars();
   }, [token]);
+
+  let navigate = useNavigate();
+  const buttonClick = () => {
+    let path = '/searchpage';
+    navigate(path);
+  }
   return (
     <div className="container">
       <h1>Home Page for {user.username}!</h1>
-      {cars &&
-        cars.map((car) => (
-          <p key={car.id}>
-            {car.year} {car.model} {car.make}
-          </p>
-        ))}
+      <button onClick={buttonClick}>Search Videos</button>
     </div>
   );
 };
