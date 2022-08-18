@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SearchPage from "../SearchPage/SearchPage";
+import './SearchBar.css'
 
 
 const SearchBar = (props) => {
@@ -12,9 +12,9 @@ const SearchBar = (props) => {
     return ( 
     <div>
         <form onSubmit={handleSearch}>
-            <span>Search</span>
-            <input type="text" value={search} onChange={(event) => setSearch(event.target.value)}/>
-            <button type="submit">Search</button>
+            
+            <input className ='search-bar' type="text" placeholder="search..."  value={search} onChange={(event) => setSearch(event.target.value)}/>
+            <button className='search-button' type="submit">Search</button>
         </form>
         
 

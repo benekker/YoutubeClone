@@ -30,7 +30,7 @@ const CommentList = (props) => {
             return(
               <div className="comment-border">
                 <div key={index}> Name: {user.username}</div> 
-                <div> Text: {comment.text} </div>
+                <div className="comment"> Text: {comment.text} </div>
                 <div>Likes:{comment.likes} </div>
                 <div> Dislikes:{comment.dislikes}</div>
               </div>  

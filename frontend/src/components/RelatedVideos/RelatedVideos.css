@@ -1,0 +1,9 @@
+.border-box {
+    padding: 2%;
+    margin: 2%;
+}
+
+.image {
+    width: 180px;
+    height: 125px;
+}

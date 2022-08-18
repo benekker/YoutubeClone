@@ -4,6 +4,7 @@ import { useEffect, useState, } from 'react';
 import useAuth from '../../hooks/useAuth';
 import SearchBar from '../SearchBar/SearchBar';
 import { Link } from 'react-router-dom';
+import './SearchPage.css'
 
 
 const SearchPage = (props) => {
@@ -38,14 +39,16 @@ const SearchPage = (props) => {
     return (
         <div>
             <SearchBar fetchVideos = {fetchVideos} />
+            <div className='row'>
             {videos.map((video, index) => {
                 return(
                 <Link to={`/videopage/${video.id.videoId}`}>
-                    <div key = {index}>{video.snippet ?  <img src={video.snippet.thumbnails.default.url} onClick={ () => getVideo(video)}></img> : null}    
+                    <div className='column' key = {index}>{video.snippet ?  <img className = 'thumbnail' src={video.snippet.thumbnails.default.url} onClick={ () => getVideo(video)}></img> : null}    
                     </div>
                 </Link>
                 )
-            })};
+            })}
+            </div>
             
         
         </div>

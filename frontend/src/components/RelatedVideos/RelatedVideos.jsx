@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import './RelatedVideos.css'
 
 const RelatedVideos = (props) => {
 
@@ -30,15 +31,17 @@ const RelatedVideos = (props) => {
 
     return ( 
         <div>
-            <h1>Related Videos</h1>
+            <h2>Related Videos</h2>
+            <div className="border-box">
             {relatedvideos.map((video,index) => {
                 return(
                     <Link to={`/videopage/${video.id.videoId}`}>
-                        <div key={index}> {video.snippet ? <img src={video.snippet.thumbnails.default.url} onClick={ () => getVideo(video)}></img> : null}
+                        <div key={index}> {video.snippet ? <img className = 'image' src={video.snippet.thumbnails.default.url} onClick={ () => getVideo(video)}></img> : null}
                         </div>
                     </Link>
                 )
             })}
+            </div>
         </div>
      );
 }
