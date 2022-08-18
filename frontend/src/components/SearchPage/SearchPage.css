@@ -1,12 +1,13 @@
 .thumbnail {
     height: 145px;
-    width: 160px;
+    width: 145px;
+    object-fit: cover;
 }
 
 .row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
   
   .column {

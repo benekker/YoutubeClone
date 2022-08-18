@@ -26,7 +26,6 @@ const Comment = (props) => {
     }
     return ( 
         <div>
-            <button onSubmit={likeComment}>Like</button>
         </div>
 
      );

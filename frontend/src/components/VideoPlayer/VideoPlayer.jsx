@@ -7,7 +7,7 @@ const VideoPlayer = (props) => {
     const [title, setTitle] = useState();
     const [description, setDescription] = useState();
     useEffect(async () =>{
-        let response = await axios.get(`https://www.googleapis.com/youtube/v3/videos?part=id%2C+snippet&id=${props.video}&key=AIzaSyCt_ljbljMKTXXBp8-H6kWyYj7FQRVu0Bk`);
+        let response = await axios.get(`https://www.googleapis.com/youtube/v3/videos?part=id%2C+snippet&id=${props.video}&key=AIzaSyBoMrh9V0ZVSk-HsdkLK9rkybZ4TQCcL5w`);
         setTitle(response.data.items[0].snippet.title)
         console.log(response.data)
         setDescription(response.data.items[0].snippet.description)
