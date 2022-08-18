@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
-import './CommentList.css'
+import './CommentList.css';
+import Comment from "../Comment/Comment";
 
 const CommentList = (props) => {
 
@@ -29,8 +30,8 @@ const CommentList = (props) => {
         {comments.map((comment,index) => {
             return(
               <div className="comment-border">
-                <div key={index}> Name: {user.username}</div> 
-                <div className="comment"> Text: {comment.text} </div>
+                <div key={index}> Name: {comment.user.username}</div> 
+                <div> Text: {comment.text} </div>
                 <div>Likes:{comment.likes} </div>
                 <div> Dislikes:{comment.dislikes}</div>
               </div>  

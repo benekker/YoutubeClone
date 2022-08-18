@@ -4,7 +4,8 @@ import CommentForm from "../CommentForm/CommentForm";
 import CommentList from "../CommentList/CommentList";
 import RelatedVideos from "../RelatedVideos/RelatedVideos";
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
-import './VideoPage.css'
+import './VideoPage.css';
+import Comment from "../Comment/Comment";
 
 const VideoPage = (props) => {
     const { video} = useParams();
@@ -23,6 +24,7 @@ const VideoPage = (props) => {
        <RelatedVideos video = {video}/>
        <CommentForm video = {video}/>
        <CommentList video = {video}/>
+       <Comment video = {video}/>
        
     </div>
     );

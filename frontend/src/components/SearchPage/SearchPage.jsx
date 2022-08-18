@@ -14,7 +14,7 @@ const SearchPage = (props) => {
     
     const fetchVideos = async (videoTitle = 'starwars') => {
         try{
-            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${videoTitle}&key=AIzaSyCt_ljbljMKTXXBp8-H6kWyYj7FQRVu0Bk&part=snippet`
+            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${videoTitle}&key=AIzaSyCt_ljbljMKTXXBp8-H6kWyYj7FQRVu0Bk&part=snippet&maxResults=12`
             );
             setVideos(response.data.items);
             console.log(response.data)
