@@ -30,6 +30,7 @@ def update_user_comment (request, pk):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def user_comment (request):
+    print(request.data)
     if request.method == 'POST':
         serializer = CommentSerializer(data = request.data)
         if serializer.is_valid():

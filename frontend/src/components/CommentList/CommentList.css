@@ -1,0 +1,13 @@
+.comment-border {
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+    margin: 135pxS;
+    padding: 15px;
+    border-radius: 30px;
+    vertical-align: middle;
+    text-align: left;
+    position: relative;
+    
+    
+}

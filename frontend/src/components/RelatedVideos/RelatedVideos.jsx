@@ -10,7 +10,7 @@ const RelatedVideos = (props) => {
 
     const fetchRelatedVideos = async () => {
         try{
-            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${props.video}&type=video&key=AIzaSyBoMrh9V0ZVSk-HsdkLK9rkybZ4TQCcL5w&part=snippet`);
+            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${props.video}&type=video&key=AIzaSyCt_ljbljMKTXXBp8-H6kWyYj7FQRVu0Bk&part=snippet`);
             setRelatedVideos(response.data.items);
             console.log(response.data);
         } catch (error){
