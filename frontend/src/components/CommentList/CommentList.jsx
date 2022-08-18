@@ -3,6 +3,7 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import './CommentList.css';
 import Comment from "../Comment/Comment";
+import CommentForm from "../CommentForm/CommentForm";
 
 const CommentList = (props) => {
 
@@ -34,9 +35,9 @@ const CommentList = (props) => {
                 <div> Text: {comment.text} </div>
                 <div>Likes:{comment.likes} </div>
                 <div> Dislikes:{comment.dislikes}</div>
-              </div>  
+              </div>      
                 
-            )
+            )          
         })}
         </div>
      );

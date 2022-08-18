@@ -24,7 +24,6 @@ const VideoPage = (props) => {
        <RelatedVideos video = {video}/>
        <CommentForm video = {video}/>
        <CommentList video = {video}/>
-       <Comment video = {video}/>
        
     </div>
     );
